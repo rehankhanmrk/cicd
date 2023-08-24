@@ -16,9 +16,9 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_PRIVATE_KEY }}
           script: |
-          export NVM_DIR=~/.nvm
-          source ~/.nvm/nvm.sh
-          cd /home/rehan/nodejs
-          git pull origin main
-          /home/rehan/.nvm/versions/node/v18.17.1/bin/npm install
-          /home/rehan/.nvm/versions/node/v18.17.1/bin/pm2 restart nodejs
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            cd /home/rehan/nodejs
+            git pull origin main
+            /home/rehan/.nvm/versions/node/v18.17.1/bin/npm install
+            /home/rehan/.nvm/versions/node/v18.17.1/bin/pm2 restart nodejs
