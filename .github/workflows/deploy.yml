@@ -16,9 +16,7 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_PRIVATE_KEY }}
           script: |
-            export NVM_DIR=~/.nvm
-            source ~/.nvm/nvm.sh
-            cd /home/ubuntu/cicd
-            git pull origin main
-            npm install
-            pm2 restart nodejs-server
+            cd /home/rehan/cicd
+#            git pull origin main
+#            npm install
+#            pm2 restart nodejs-server
