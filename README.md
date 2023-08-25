@@ -244,17 +244,17 @@ Thanks for your support :)
 
 ### NOTE
 ```
-First step: Create Instance
-2nt step  : ssh connect instance
-3rd step  : update && upgrade
-4th step  : install Nodejs && downloads a script and runs it. The script clones the nvm repository to `~/.nvm and Copy & Past (each line separately)
-5th step  : check version Verify install
-6th step  : clone nodejs repo
-7th step  : cd repo and npm install
-8th step  : install pm2
-9th step  : pm2 name attach with js file
-10th step : pm2 save && pm2 startup and output copy paste it terminal
-11th step : install nginx and proxy pass nodejs
-12th step : add domain in dns management server such as cloudflare and godaddy etc
-13th step : install ssl certbot and add domain in nginx and attach ssl certbot and then check it done
+# First step: Create Instance
+# 2nt step  : ssh connect instance
+# 3rd step  : update && upgrade
+# 4th step  : install Nodejs && downloads a script and runs it. The script clones the nvm repository to `~/.nvm and Copy & Past (each line separately)
+# 5th step  : check version Verify install
+# 6th step  : clone nodejs repo
+# 7th step  : cd repo and npm install
+# 8th step  : install pm2
+# 9th step  : pm2 name attach with js file
+# 10th step : pm2 save && pm2 startup and output copy paste it terminal
+# 11th step : install nginx and proxy pass nodejs
+# 12th step : add domain in dns management server such as cloudflare and godaddy etc
+# 13th step : install ssl certbot and add domain in nginx and attach ssl certbot and then check it done
 
