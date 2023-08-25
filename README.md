@@ -243,7 +243,42 @@ sudo certbot renew --dry-run
 Thanks for your support :)
 
 ### NOTE
+`
+###cicd github_action
 ```
+mkdir .workflow 
+nano .workflow/deploy.yml
+```
+```
+name: live Uat Environment
+on:
+  push:
+    branches:
+      - main
+      
+jobs: 
+  deploy: 
+    runs-on: ubuntu-latest
+    steps:
+      - if: github.ref == 'refs/heads/main'
+        name: uat environment
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_PRIVATE_KEY }}
+          script: |
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            cd /home/ubuntu/cicd
+            git pull origin main
+            npm install
+            pm2 restart nodejs-ssl-server
+```
+save it 
+done 
+
+``
 # First step: Create Instance
 # 2nt step  : ssh connect instance
 # 3rd step  : update && upgrade
