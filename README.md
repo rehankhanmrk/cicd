@@ -2,8 +2,6 @@
 
 How to deploy nodejs app to AWS EC2 Ubuntu 22 Server with free SSL and Nginx reverse proxy
 
-<a href="https://www.buymeacoffee.com/scaleupsaas"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=scaleupsaas&button_colour=BD5FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" /></a>
-
 ## Installation instructions
 
 ### 1. Launch amazon ubuntu server in aws + Attach Elastic IP to the new instance
@@ -131,7 +129,7 @@ sudo nano /etc/nginx/sites-available/default
     server_name yourdomain.com www.yourdomain.com;
 
     location / {
-        proxy_pass http://localhost:5000; #whatever port your app runs on
+        proxy_pass http://localhost:3000; #whatever port your app runs on
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -152,7 +150,7 @@ sudo service nginx restart
 
 #### You should now be able to visit your IP with no port (port 80) and see your app. Now let's add a domain
 
-### 9 Add domain in goDaddy.com
+### 9 Add domain in goDaddy.com & Cloudflare ...
 If you have domain, you can add A record to your EC2 instance IP with a new subdomain as I'm going to show you next
 
 #### 9.1 Check that Port 80 redirect to Nodejs server
@@ -185,7 +183,7 @@ sudo nano /etc/nginx/sites-available/default
 let edit this line:
 ```sh
 ...
-server_name example.com www.example.com;
+server_name yourdomain.com www.yourdomain.com;
 ...
 ```
 
@@ -199,7 +197,7 @@ sudo systemctl reload nginx
 
 #### 10.3 Obtaining an FREE SSL Certificate
 ```sh
-sudo certbot --nginx -d app.example.com 
+sudo certbot --nginx -d your.domain.com 
 ```
 
 Output:
@@ -241,13 +239,22 @@ sudo certbot renew --dry-run
   
   
 ## Support 🙏😃
-  
- If you Like the tutorial and you want to support my channel so I will keep releasing amzing content that will turn you to a desirable Developer with Amazing Cloud skills... I will realy appricite if you:
  
- 1. Subscribe to My youtube channel and leave a comment: http://www.youtube.com/@ScaleUpSaaS?sub_confirmation=1
- 2. Buy me A coffee ❤️ : https://www.buymeacoffee.com/scaleupsaas
-
 Thanks for your support :)
 
-<a href="https://www.buymeacoffee.com/scaleupsaas"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=scaleupsaas&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+### NOTE
+```
+First step: Create Instance
+2nt step  : ssh connect instance
+3rd step  : update && upgrade
+4th step  : install Nodejs && downloads a script and runs it. The script clones the nvm repository to `~/.nvm and Copy & Past (each line separately)
+5th step  : check version Verify install
+6th step  : clone nodejs repo
+7th step  : cd repo and npm install
+8th step  : install pm2
+9th step  : pm2 name attach with js file
+10th step : pm2 save && pm2 startup and output copy paste it terminal
+11th step : install nginx and proxy pass nodejs
+12th step : add domain in dns management server such as cloudflare and godaddy etc
+13th step : install ssl certbot and add domain in nginx and attach ssl certbot and then check it done
 
