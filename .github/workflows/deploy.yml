@@ -17,6 +17,6 @@ jobs:
           key: ${{ secrets.SERVER_PRIVATE_KEY }}
           script: |
             cd /home/ubuntu/nodejs_cicd_github_action
-            git pull origin main
+            #git pull origin main
             npm install
             pm2 restart nodejs-server
