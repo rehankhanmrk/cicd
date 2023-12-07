@@ -15,9 +15,9 @@ jobs:
 
 
         with:
-          host: ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: ${{ secrets.INPUT_HOST }}
+          username: ${{ secrets.INPUT_USERNAME }}
+          key: ${{ secrets.INPUT_KEY }}
           script: |
             cd /var/www/cicd
             npm install
